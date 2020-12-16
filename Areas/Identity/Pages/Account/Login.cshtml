@@ -1,0 +1,60 @@
+@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "เข้าสู่ระบบ";
+}
+
+<body style="background-color : #F8F8FF"> </body>
+<br><br><br>
+
+<div class="col-md-8 col-md-offset-2" style="border-width:5px; border-style:solid; background-color:#8DEEEE; color:black; border-color:#008B8B;">
+        <section>
+            <center>
+			<h3>โปรดใช้  password เป็น "รหัสนักศึกษา_Cs" เพื่อเข้าสู่ระบบ</h3>
+        </section>
+</div>
+<br><br>
+<div class="jumbotron" style="background-color:#20B2AA;">
+<div class="row">
+    <div class="col-md-8">
+	<img src="~/images/18.jpg"width=600 height=500>  
+	</div>
+<br><br><br><br><br>
+		<div class="col-md-4" style="border-style:double; background-color:#00FA9A;">
+        <br><br>
+	<section>
+            <form method="post">
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    PSU-EMAIL
+                    <input asp-for="Input.Email" class="form-control" style="border-style:groove; border-width:2px; />
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    PASSWORD
+                    <input asp-for="Input.Password" class="form-control" style="border-style:groove; border-width:2px;/>
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input asp-for="Input.RememberMe" />
+                         จำรหัสผ่าน
+                    </div>
+                </div>
+                <div class="form-group">
+                    <center><button type="submit" class="btn btn-default" >เข้าสู่ระบบ</button></center>
+                </div>
+            </form>
+        </section>
+    </div>
+    <br>
+	<br>
+	<br>
+    
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

@@ -1,0 +1,73 @@
+@page
+@model SourceCode.Pages.Admin.IndexModel
+
+@{
+    ViewData["Title"] = "ข้อมูลพรรค";
+}
+<body style=" background-color:#8B8989"> </body>
+<br><br>
+<div class="jumbotron" style="font-family:JasmineUPC; font-size:160%; background-color:#FFF5EE;">
+<h1>ข้อมูลพรรคที่ลงสมัคร</h1>
+<p>
+    <a asp-page="Create">สร้างรายชื่อพรรค</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+              ลำดับพรรค
+            </th>
+            <th>
+	ชื่อพรรค
+            </th>
+            <th>
+              รูปประธานพรรค
+            </th>
+            <th>
+                ชื่อ-นามสกุลประธานพรรค
+            <th>
+               ชื่อ-นามสกุลรองประธานพรรค
+            </th>
+            <th>
+                ชื่อ-นามสกุลสมาชิกพรรค
+            </th>
+            <th>
+               ผลโหวต
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Party) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartyID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartyAlbum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeaderName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SecondName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MemberName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Count)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">แก้ไข</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">รายละเอียด</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">ลบ</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>

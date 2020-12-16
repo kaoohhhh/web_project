@@ -1,0 +1,57 @@
+@page
+@model SourceCode.Pages.Admin.DetailsModel
+
+@{
+    ViewData["Title"] = "รายละเอียดพรรค";
+}
+<body style=" background-color:#8B8989"> </body>
+<br><br>
+<div class="jumbotron" style="font-family:JasmineUPC; font-size:160%; background-color:#FFF5EE;">
+<h1>รายละเอียดพรรค</h1>
+<div>
+    <h3> @Html.DisplayFor(model => model.Party.PartyName)</h3>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Party.PartyID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Party.PartyID)
+        </dd>
+        <dt>
+         รูปประธานพรรค
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Party.PartyAlbum)
+        </dd>
+        <dt>
+            ชื่อ-นามสกุลประธานพรรค
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Party.LeaderName)
+        </dd>
+        <dt>
+            ชื่อ-นามสกุลรองประธานพรรค
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Party.SecondName)
+        </dd>
+        <dt>
+            ชื่อ-นามสกุลสมาชิกพรรค
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Party.MemberName)
+        </dd>
+        <dt>
+           ผลโหวต
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Party.Count)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Party.ID">แก้ไข</a> |
+    <a asp-page="./Index">ย้อนกลับ</a>
+</div>
+</div>

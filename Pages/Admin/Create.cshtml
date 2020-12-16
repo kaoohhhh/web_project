@@ -1,0 +1,64 @@
+@page
+@model SourceCode.Pages.Admin.CreateModel
+
+@{
+    ViewData["Title"] = "สร้างรายชื่อพรรค";
+}
+<body style=" background-color:#8B8989"> </body>
+<br><br>
+<div class="jumbotron" style="font-family:JasmineUPC; font-size:160%; background-color:#FFF5EE;">
+<h1>สร้างข้อมูลรายชื่อพรรค</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                ลำดับพรรค
+                <input asp-for="Party.PartyID" class="form-control" />
+                <span asp-validation-for="Party.PartyID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+		ชื่อพรรค
+                <input asp-for="Party.PartyName" class="form-control" />
+                <span asp-validation-for="Party.PartyName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+               รูปประธานพรรค
+                <input asp-for="Party.PartyAlbum" class="form-control" />
+                <span asp-validation-for="Party.PartyAlbum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                ชื่อ-นามสกุลประธานพรรค
+                <input asp-for="Party.LeaderName" class="form-control" />
+                <span asp-validation-for="Party.LeaderName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                ชื่อ-นามสกุลรองประธานพรรค
+                <input asp-for="Party.SecondName" class="form-control" />
+                <span asp-validation-for="Party.SecondName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                ชื่อ-นามสกุลสมาชิกพรรค
+                <input asp-for="Party.MemberName" class="form-control" />
+                <span asp-validation-for="Party.MemberName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                ผลโหวต
+                <input asp-for="Party.Count" class="form-control" />
+                <span asp-validation-for="Party.Count" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="สร้าง" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">ย้อนกลับ</a>
+</div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
