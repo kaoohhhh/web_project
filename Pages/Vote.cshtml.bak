@@ -1,0 +1,29 @@
+@page
+@model VoteModel
+@using Microsoft.AspNetCore.Identity
+@using SourceCode.Models
+@inject SignInManager<PartyUser> SignInManager
+@inject UserManager<PartyUser> UserManager
+
+@{
+ ViewData["Title"] = "ใช้สิทธิ์เลือกตั้ง";
+}
+<body style=" background-image: url(Images/38.jpg); background-size: 109% 109%; background-position: 60% 60%;"> </body>
+<br><br><br><br><br><br>
+<br><br><br><br><br><br>
+<div class"container"
+<div class="jumbotron" style="background-color:#00FA9A; font-family:JasmineUPC;">
+<center><h2 style="font-size:300%; color:#556B2F;">โปรดเลือกพรรคที่คุณต้องการลงคะแนนเสียงเพียงพรรคเดียว</h2></center>
+<br>
+	<div class="jumbotron">
+		<form method="post">
+			@foreach(var item in Model.Partys) {
+			<br><h2><input type="radio"name="choice" value="@item.ID">&nbsp; &nbsp;  @item.PartyName <br></h2>	    
+			} 
+			<br><br>
+			@Html.AntiForgeryToken()
+			<center><h3><input type="Submit" value="Vote"></h3></center>
+			</form>
+	</div>
+</div>
+ </div>
